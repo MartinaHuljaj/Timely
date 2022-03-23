@@ -50,7 +50,7 @@ namespace Timely.Controllers
         }
 
         [HttpGet("{projectId:int}")]
-        public IActionResult GetFlight(int projectId)
+        public IActionResult GetProject(int projectId)
         {
             try
             {
