@@ -59,5 +59,15 @@ namespace Timely.Repository
             }
 
         }
+
+        public void DeleteProject(int projectId)
+        {
+            var projectForDelete = GetProject(projectId);
+            if (projectForDelete != null)
+            {
+                _timeContext.Projects.Remove(projectForDelete);
+                _timeContext.SaveChanges();
+            }
+        }
     }
 }

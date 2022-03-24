@@ -91,5 +91,20 @@ namespace Timely.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+
+        [HttpDelete("{projectId:int}")]
+        public IActionResult DeleteFlight(int projectId)
+        {
+            try
+            {
+                _projectRepository.DeleteProject(projectId);
+                return Ok();
+            }
+            catch (System.Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
     }
 }
