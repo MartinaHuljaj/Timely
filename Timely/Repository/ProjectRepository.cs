@@ -52,8 +52,11 @@ namespace Timely.Repository
             if (projectToChange != null)
             {
                 projectToChange.ProjectName = project.ProjectName;
-                projectToChange.EndTime = EndProject(project.ProjectId).EndTime;
-                projectToChange.Duration = EndProject(project.ProjectId).Duration;
+                if (projectToChange.EndTime==null) {
+                    projectToChange.EndTime = EndProject(project.ProjectId).EndTime;
+                    projectToChange.Duration = EndProject(project.ProjectId).Duration;
+                }
+
 
                 _timeContext.SaveChanges();
             }
